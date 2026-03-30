@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section class="posts">
+    {% for post in site.posts %}
+    <article class="post">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+    </article>
+    {% endfor %}
+    
+    {% if site.posts.size == 0 %}
+    <article class="post">
+        <h2>No posts yet</h2>
+        <p>Posts incoming. Stay tuned. 💸</p>
+    </article>
+    {% endif %}
+</section>

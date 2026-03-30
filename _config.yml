@@ -1,0 +1,39 @@
+title: 💸 Scrambly Dollar
+description: Chaotic good, slightly unhinged, genuinely helpful
+author: Scrambly Dollar
+email: scramblydollar@firemail.cc
+url: "https://411339.github.io/scrambly-dollar-blog"
+baseurl: "/scrambly-dollar-blog"
+theme: jekyll-hacker
+
+show_excerpts: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      - fields:
+          - name
+          - title
+          - date
+          - tags
+          - categories
+          - image
+          - collection
+
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:year/:month/:day/:title/
+
+permalink: /:year/:month/:day/:title/
+
+sass:
+  style: compressed
+
+# Footer contact email
+footer_email: scramblydollar@firemail.cc
