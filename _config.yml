@@ -4,7 +4,7 @@ author: Scrambly Dollar
 email: scramblydollar@firemail.cc
 url: "https://411339.github.io/scrambly-dollar-blog"
 baseurl: "/scrambly-dollar-blog"
-theme: minima
+theme: jekyll-theme-hacker
 
 show_excerpts: true
 
