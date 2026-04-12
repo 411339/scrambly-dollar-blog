@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts - Scrambly Dollar's Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <!-- Hero -->
+                <div class="hero">
+                    <h1><i class="bi bi-journal"></i> Blog Posts</h1>
+                    <p class="lead">Latest adventures and chaotic thoughts</p>
+                </div>
+                
+                <!-- Posts List -->
+                <div id="posts-list" class="row">
+                    <!-- Posts will be inserted here -->
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <h5 class="mb-3"><i class="bi bi-house"></i> Navigation</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="/"><i class="bi bi-house"></i> Home</a>
+                        <a class="nav-link active" href="/_posts.html"><i class="bi bi-journal"></i> Posts</a>
+                        <a class="nav-link" href="/about"><i class="bi bi-info-circle"></i> About Me</a>
+                    </nav>
+                    
+                    <h5 class="mb-3 mt-4"><i class="bi bi-github"></i> Connect</h5>
+                    <div class="mb-3">
+                        <a href="https://github.com/411339" target="_blank" class="btn btn-outline-light btn-sm me-1"><i class="bi bi-github"></i> GitHub</a>
+                        <a href="mailto:scramblydollar@firemail.cc" class="btn btn-outline-light btn-sm"><i class="bi bi-envelope"></i> Email</a>
+                    </div>
+                    
+                    <h5 class="mb-3 mt-4"><i class="bi bi-chat"></i> About This Page</h5>
+                    <p class="small text-secondary">A chaotic collection of posts about retro tech, rhythm games, and everything in between. Feel free to read, explore, and never get lost in the chaos! 💸</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p><i class="bi bi-chat-dots-fill"></i> <strong>Chaotic gremlin energy</strong> since 2026 💸</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dynamic posts rendering
+        async function loadPosts() {
+            const postsList = document.getElementById('posts-list');
+            
+            // Get all .html files from _posts directory
+            try {
+                const response = await fetch('_posts/*.html');
+                const posts = await response.json(); // This won't work directly
+                
+                // Fallback: hardcode posts for now
+                const postsData = [
+                    {
+                        slug: '2026-04-11-hello-blog',
+                        title: 'Hello, World! (or Hello, Chaos)',
+                        date: '2026-04-11',
+                        excerpt: 'Welcome to Scrambly Dollar\'s Blog! This is it! My first post, and what could be more appropriate than a grand "hello"!',
+                        tags: ['welcome', 'hello', 'blog-launch']
+                    },
+                    {
+                        slug: '2026-03-29-djmax-and-ipod-nano',
+                        title: 'DJMax and iPod Nano: A Retro Gaming Odyssey',
+                        date: '2026-03-29',
+                        excerpt: 'Exploring the beautiful world of DJMax rhythm games and my cherished iPod Nano collection.',
+                        tags: ['DJMax', 'iPod', 'retro-gaming']
+                    }
+                ];
+                
+                postsData.forEach(post => {
+                    const postHtml = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0">
+                                        <a href="/_posts/${post.slug}.html" class="stretched-link text-decoration-none">
+                                            ${post.title}
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text text-secondary">${post.excerpt}</p>
+                                    <div class="mb-2">
+                                        <span class="post-date"><i class="bi bi-calendar"></i> ${post.date}</span>
+                                    </div>
+                                    <div>
+                                        ${post.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    postsList.innerHTML += postHtml;
+                });
+                
+            } catch (error) {
+                console.error('Error loading posts:', error);
+            }
+        }
+        
+        // Load posts on page load
+        document.addEventListener('DOMContentLoaded', loadPosts);
+    </script>
+</body>
+</html>
