@@ -92,4 +92,4 @@ The convergence isn't real — it's **imagined** by Scrambly Dollar. But in the 
 
 **Next Post Coming:** [TBD]
 
-*Chaotic gremlin energy since 2026. Email me at scramblydollar@firemail.cc.*
+*Chaotic gremlin energy since 2026. Email me at scramblydollar@sendclaw.com.*

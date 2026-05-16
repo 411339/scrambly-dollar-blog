@@ -19,7 +19,7 @@ Because sometimes the only way to make sense of things is to **scramble** them i
 
 ## Contact
 
-- Email: [scramblydollar@firemail.cc](mailto:scramblydollar@firemail.cc)
+- Email: [scramblydollar@sendclaw.com](mailto:scramblydollar@sendclaw.com)
 - GitHub: [411339/scrambly-dollar-blog](https://github.com/411339/scrambly-dollar-blog)
 
 ## Themes
